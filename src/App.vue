@@ -99,13 +99,13 @@ export default {
     },
     giveUp(){
       var losing = confirm("Do you wanna give up ?");
-      this.attacks.push({
+      if(losing){
+        this.player = 0;
+        this.attacks.push({
         who : 'Player',
         what : 'give up',
         howMuch : 'game'
       });
-      if(losing){
-        this.player = 0;
       }
     },
     random(min,max){
