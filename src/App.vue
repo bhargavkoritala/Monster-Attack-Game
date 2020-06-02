@@ -56,13 +56,13 @@ export default {
     },
     attack(){
       var randomPlayer =  this.random(0,10)
-      this.attacks.push({
+      this.attacks.unshift({
         who : 'Player',
         what : 'attack',
         howMuch : randomPlayer
       });
       var randomMonster = this.random(0,10)
-      this.attacks.push({
+      this.attacks.unshift({
         who : 'Monster',
         what : 'attack',
         howMuch : randomMonster
@@ -74,12 +74,12 @@ export default {
     sAttack(){
       var randomPlayer =  this.random(10,20)
       var randomMonster = this.random(10,20)
-      this.attacks.push({
+      this.attacks.unshift({
         who : 'Player',
         what : 'special attack',
         howMuch : randomPlayer
       });
-      this.attacks.push({
+      this.attacks.unshift({
         who : 'Monster',
         what : 'special attack',
         howMuch : randomMonster
@@ -90,12 +90,12 @@ export default {
     heal(){
       var randomPlayer =  this.random(1,3)
       var randomMonster = this.random(1,3)
-      this.attacks.push({
+      this.attacks.unshift({
         who : 'Player',
         what : 'heal',
         howMuch : randomPlayer
       });
-      this.attacks.push({
+      this.attacks.unshift({
         who : 'Monster',
         what : 'heal',
         howMuch : randomMonster
@@ -108,7 +108,7 @@ export default {
       if(losing){
         this.player = 0;
         this.startGame = !this.startGame
-        this.attacks.push({
+        this.attacks.unshift({
         who : 'Player',
         what : 'give up',
         howMuch : 'game'
