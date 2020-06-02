@@ -16,7 +16,7 @@
     </div>
     <div class="p-4">
       <div v-if="!startGame">
-        <button class="btn btn-primary" @click="startGame = true">New Game</button>
+        <button class="btn btn-primary" @click="changeGame">New Game</button>
       </div>
       <div v-else>
         <button class='btn btn-primary m-1' @click="attack">Attack</button>
@@ -48,6 +48,12 @@ export default {
   components: {
   },
   methods:{
+    changeGame(){
+      this.startGame = !this.startGame
+      this.player = 100
+      this.monster = 100
+      this.attacks = []
+    },
     attack(){
       var randomPlayer =  this.random(0,10)
       this.attacks.push({
@@ -101,6 +107,7 @@ export default {
       var losing = confirm("Do you wanna give up ?");
       if(losing){
         this.player = 0;
+        this.startGame = !this.startGame
         this.attacks.push({
         who : 'Player',
         what : 'give up',
